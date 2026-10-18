@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  --color-tandoori-red: #D90429;
+  --color-tandoori-red-dark: #A0001E;
+  --color-tandoori-red-deep: #6A040F;
+  --color-tandoori-yellow: #FFB703;
+  --color-tandoori-yellow-bright: #FFD000;
+  --color-tandoori-amber: #FB8500;
+  --color-tandoori-card: #8A0015;
+  --color-tandoori-card-dark: #63000E;
+  --color-tandoori-border: #FFD000;
+
+  --shadow-glow-red: 0 0 30px -5px rgba(217, 4, 41, 0.7);
+  --shadow-glow-yellow: 0 0 35px -5px rgba(255, 208, 0, 0.65);
+  --shadow-pop-food: 0 20px 30px -8px rgba(0, 0, 0, 0.85);
+}
+
+:root {
+  --background: #850014;
+  --foreground: #FFF8E7;
+}
+
+body {
+  background-color: #850014;
+  /* Deep textured flame background similar to the menu flyer */
+  background-image: 
+    radial-gradient(circle at 50% 0%, #D90429 0%, #850014 45%, #47000B 100%),
+    repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 2px, transparent 2px, transparent 4px);
+  color: var(--foreground);
+  font-family: system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 3D Cutout Food Shadow */
+.food-pop-shadow {
+  filter: drop-shadow(0 18px 20px rgba(0, 0, 0, 0.8))
+         drop-shadow(0 6px 10px rgba(255, 183, 3, 0.5));
+}
+
+/* Torn paper edge effect for banners and headers */
+.torn-banner {
+  clip-path: polygon(
+    0% 0%, 100% 0%, 100% 92%, 
+    98% 97%, 95% 90%, 91% 99%, 87% 91%, 83% 98%, 79% 92%, 75% 99%, 
+    71% 91%, 66% 98%, 62% 90%, 58% 99%, 54% 92%, 50% 97%, 46% 91%, 
+    42% 99%, 38% 92%, 34% 98%, 29% 90%, 25% 99%, 21% 92%, 17% 98%, 
+    13% 91%, 9% 99%, 5% 92%, 2% 98%, 0% 93%
+  );
+}
+
+/* Scrollbar in vibrant yellow/red */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #50000D;
+}
+::-webkit-scrollbar-thumb {
+  background: #FFD000;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FFB703;
+}
