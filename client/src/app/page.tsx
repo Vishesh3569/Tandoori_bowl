@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useMemo } from "react";
-import axios from "axios";
+import api from "../lib/api";
 import { MenuItem, CategoryType } from "../types";
 import { PreorderBanner } from "../components/layout/PreorderBanner";
 import { CategoryFilter } from "../components/menu/CategoryFilter";
@@ -20,7 +20,8 @@ export default function Home() {
       try {
         setLoading(true);
         setError(null);
-        const res = await axios.get("http://localhost:5001/api/menu");
+        // Uses the centralized api instance; resolves to /api/menu on localhost:5001 or cloud backend
+        const res = await api.get("/menu");
         if (res.data?.success && Array.isArray(res.data?.data)) {
           setItems(res.data.data);
         } else {
